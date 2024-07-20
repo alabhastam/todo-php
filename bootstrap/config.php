@@ -1,10 +1,10 @@
 <?php
 
 
-$database_config = [
-    'host'=> '',
-    'user'=> '',
+$database_config =(object) [
+    'host'=> 'localhost',
+    'user'=> 'root',
     'pass'=> '',
-    'db'=> '',
+    'db'=> 'todo-php',
 ];
 ?>

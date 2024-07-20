@@ -1,0 +1,16 @@
+{
+    "name": "ali/todo-php",
+    "description": "This is practical project I am trying to do for improving my PHP skills as a backend developer",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "alitorpedo",
+            "email": "abdollahia713@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "hekmatinasser/verta": "^8.4"
+    }
+}

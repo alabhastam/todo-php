@@ -23,12 +23,21 @@
       <div class="menu">
         <div class="title">Navigation</div>
         <ul>
-          <li> <i class="fa fa-home"></i>Home</li>
-          <li><i class="fa fa-signal"></i>Activity</li>
-          <li class="active"> <i class="fa fa-tasks"></i>Manage Tasks</li>
-          <li> <i class="fa fa-envelope"></i>Messages</li>
-        </ul>
+          <?php foreach($folders as $folder): ?>
+            <li>
+            <a href="?folder_id=<?=$folder -> id ?> "><i class="fa fa-folder"></i><?=$folder -> name ?></a>
+            <a href="?delete_folder=<?=$folder -> id ?>" class="remove">X</a> 
+          </li>
+          <?php endforeach; ?>  
+
+
+          <li class="active"> <i class="fa fa-folder"></i>Active Folder</li>        
+        </ul>       
       </div>
+        <div> 
+          <input type="text" id = "addFolderInput" style ="width :65%;margin:3%" placeholder="Add new folder"/>
+          <button id = "addFolderBtn" class="btn clickable" >+</button>
+        </div>
     </div>
     <div class="view">
       <div class="viewHeader">
@@ -71,7 +80,17 @@
   </div>
 </div>
 <!-- partial -->
+
+
   <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="./script.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('addFolderBtn').click(function(e){
+        var input = $('input#addFolderInput');
+        alert(input.val());
+      })
+    })
+  </script>
 
 </body>
 </html>

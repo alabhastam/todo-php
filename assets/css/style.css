@@ -9,7 +9,6 @@ body {
   margin: 0px;
   font-family: "Open Sans";
   font-size: 14px;
-  font-smoothing: antialiased;
 }
 
 .page {
@@ -38,6 +37,15 @@ body {
   box-sizing: border-box;
   padding: 5px 20px;
   vertical-align: middle;
+}
+.btn{
+  padding: 3px, 10px ;
+  margin: 10px;
+  border-radius: 5px;
+}
+input{
+  padding: 3px, 10px ;
+  border-radius: 5px;
 }
 .pageHeader .title {
   width: 40%;

@@ -88,7 +88,7 @@
     $('#addFolderBtn').click(function(e){
           var input = $('input#addFolderInput');
           $.ajax({
-            url : "process/ajaxHand.php",
+            url : "process/ajaxHandler.php",
             method : "post",
             data : {action: "addFolder",folderName: input.val()},
             success : function(response){

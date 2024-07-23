@@ -1,3 +1,3 @@
 <?php
-define('ROOT_URL', 'C:/xampp/htdocs/todo-php/');
+define('BASE_DIR', 'C:/xampp/htdocs/todo-php/');
 ?>

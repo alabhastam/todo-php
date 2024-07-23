@@ -1,6 +1,12 @@
 <?php
-include ROOT_URL."bootstrap/init.php";
+include_once "./init.php";
+addFolder($_POST['folderName']);
+?>
 
-    var_dump($_POST);
+
+
+
+
+
 
 ?>

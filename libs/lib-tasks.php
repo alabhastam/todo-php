@@ -24,13 +24,14 @@ function getFolders(){
 }
 
 
-function addFolder(){
-    $this_user_id = 1 ; 
+function addFolder($folderName){
+    $this_user_id = getCurrentUser(); 
     global $conn;
-    $sql = "INSERT INTO `folders`(`name`, `user_id`) VALUES ('[value-1]','$this_user_id')";
-    $stmt = $conn -> prepare($sql);
-    $stmt ->execute();
-    $records = $stmt ->fetchAll(PDO::FETCH_OBJ);
-    return $records; 
+    $sql = "INSERT INTO folders (name, user_id) VALUES (:name, :user_id)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':name', $folderName);
+    $stmt->bindParam(':user_id', $this_user_id);
+    $stmt->execute();
+    return $stmt->rowCount();
 }
 ?>

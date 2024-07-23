@@ -1,9 +1,11 @@
 <?php 
-include ROOT_URL."constant.php";
-include ROOT_URL."bootstrap/config.php";
-include ROOT_URL."libs/lib-helpers.php";
-include ROOT_URL."libs/lib-tasks.php";
-include ROOT_URL."vendor/autoload.php";
+///this where you dont have to put BASE_DIR 
+include "constant.php";
+include "config.php";
+include BASE_DIR."process/ajaxHand.php";
+include BASE_DIR."libs/lib-helpers.php";
+include BASE_DIR."libs/lib-tasks.php";
+include BASE_DIR."vendor/autoload.php";
 
 
 $servername = $database_config-> host ;

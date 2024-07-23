@@ -22,4 +22,15 @@ function getFolders(){
     $records = $stmt ->fetchAll(PDO::FETCH_OBJ);
     return $records; 
 }
+
+
+function addFolder(){
+    $this_user_id = 1 ; 
+    global $conn;
+    $sql = "INSERT INTO `folders`(`name`, `user_id`) VALUES ('[value-1]','$this_user_id')";
+    $stmt = $conn -> prepare($sql);
+    $stmt ->execute();
+    $records = $stmt ->fetchAll(PDO::FETCH_OBJ);
+    return $records; 
+}
 ?>

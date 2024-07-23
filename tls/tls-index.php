@@ -85,23 +85,21 @@
   <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
   <script  src="assets/js/script.js"></script>
   <script>
-    $(document).ready(function(){
-        $('#addFolderBtn').click(function(e){
-            e.preventDefault(); // Prevent default form submission behavior
-            var input = $('#addFolderInput');
-            console.log("Button clicked"); // Debugging log
-            console.log("Input value: ", input.val()); // Debugging log
-            $.ajax({
-                url: "process/ajaxHand.php",
-                method: "post",
-                data: { action: "addFolder", folderName: input.val() },
-                success: function(response) {
-                    console.log("AJAX Success"); // Debugging log
-                    alert(response);
-                }
-            });
-        });
-    });
+    $('#addFolderBtn').click(function(e){
+          var input = $('input#addFolderInput');
+          $.ajax({
+            url : "process/ajaxHand.php",
+            method : "post",
+            data : {action: "addFolder",folderName: input.val()},
+            success : function(response){
+              if(response == '1'){
+                $('<li> <a href="#"><i class="fa fa-folder"></i>'+input.val()+'</a></li>').appendTo('ul.folder-list');
+              }else{
+                alert(response);
+              }
+            }
+          });
+      });
 </script>
 
 </body>

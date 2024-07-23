@@ -1,9 +1,10 @@
 <?php 
-include "constant.php";
-include "config.php";
-include "libs/lib-helpers.php";
-include "libs/lib-tasks.php";
-include "vendor/autoload.php";
+include ROOT_URL."constant.php";
+include ROOT_URL."bootstrap/config.php";
+include ROOT_URL."libs/lib-helpers.php";
+include ROOT_URL."libs/lib-tasks.php";
+include ROOT_URL."vendor/autoload.php";
+
 
 $servername = $database_config-> host ;
 $username = $database_config-> user;
@@ -17,6 +18,7 @@ try {
   diePage("Connection failed: " . $e->getMessage()) ;
   die();
 }
+
 
 
 ?>

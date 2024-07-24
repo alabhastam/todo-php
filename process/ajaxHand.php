@@ -1,5 +1,5 @@
 <?php
-include_once "./init.php";
+include "../init.php";
 addFolder($_POST['folderName']);
 ?>
 

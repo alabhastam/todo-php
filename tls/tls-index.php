@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>CodePen - Task manager UI</title>
+  <title>Task Manager UI</title>
   <link rel="stylesheet" href="assets/css/style.css">
-
 </head>
 <body>
 <!-- partial:index.partial.html -->
@@ -22,22 +21,22 @@
       </div>
       <div class="menu">
         <div class="title">Navigation</div>
-        <ul>
+        <ul class="folder-list">
           <?php foreach($folders as $folder): ?>
-            <li>
-            <a href="?folder_id=<?=$folder -> id ?> "><i class="fa fa-folder"></i><?=$folder -> name ?></a>
-            <a href="?delete_folder=<?=$folder -> id ?>" class="remove">X</a> 
+            <li class="folder-list">
+            <a href="?folder_id=<?= $folder->id ?>"><i class="fa fa-folder"></i><?= $folder->name ?></a>
+            <a href="?delete_folder=<?= $folder->id ?>" class="remove">X</a> 
           </li>
           <?php endforeach; ?>  
-
-
           <li class="active"> <i class="fa fa-folder"></i>Active Folder</li>        
         </ul>       
       </div>
-        <div> 
-          <input type="text" id = "addFolderInput" style ="width :65%;margin:3%" placeholder="Add new folder"/>
-          <button id = "addFolderBtn" class="btn clickable" >+</button>
-        </div>
+      <div> 
+        <form method="post" action="process/addFolder.php">
+          <input type="text" name="folderName" id="addFolderInput" style="width: 65%; margin: 3%;" placeholder="Add new folder"/>
+          <button type="submit" class="btn clickable">+</button>
+        </form>
+      </div>
     </div>
     <div class="view">
       <div class="viewHeader">
@@ -80,27 +79,7 @@
   </div>
 </div>
 <!-- partial -->
-
-
-  <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-  <script  src="assets/js/script.js"></script>
-  <script>
-    $('#addFolderBtn').click(function(e){
-          var input = $('input#addFolderInput');
-          $.ajax({
-            url : "process/ajaxHandler.php",
-            method : "post",
-            data : {action: "addFolder",folderName: input.val()},
-            success : function(response){
-              if(response == '1'){
-                $('<li> <a href="#"><i class="fa fa-folder"></i>'+input.val()+'</a></li>').appendTo('ul.folder-list');
-              }else{
-                alert(response);
-              }
-            }
-          });
-      });
-</script>
-
+<script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src="assets/js/script.js"></script>
 </body>
 </html>

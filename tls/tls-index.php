@@ -36,7 +36,7 @@
           <input type="text" name="folderName" id="addFolderInput" style="width: 65%; margin: 3%;" placeholder="Add new folder"/>
           <button type="submit" class="btn clickable">+</button>
         </form>
-      </div>
+      </div>-
     </div>
     <div class="view">
       <div class="viewHeader">
@@ -51,19 +51,16 @@
         <div class="list">
           <div class="title">Today</div>
           <ul>
-            <li class="checked"><i class="fa fa-check-square-o"></i><span>Update team page</span>
+          <?php foreach ($tasks as $task): ?>
+            <li class="<?=$task->is_done ? 'checked' : '';?>">
+              <i data-taskId="<?=$task->id?>" class="isDone clickable fa <?=$task->is_done ? 'fa-check-square-o' : 'fa-square-o';?> "></i>
+              <span><?=$task->title?></span>
               <div class="info">
-                <div class="button green">In progress</div><span>Complete by 25/04/2014</span>
+                <span class='created-at'>Created At <?=$task->created_at?></span>
+                <a href="?delete_task=<?=$task->id?>" class="remove" onclick="return confirm('Are You Sure to delete this Item?\n<?=$task->title?>');">x</a>
               </div>
             </li>
-            <li><i class="fa fa-square-o"></i><span>Design a new logo</span>
-              <div class="info">
-                <div class="button">Pending</div><span>Complete by 10/04/2014</span>
-              </div>
-            </li>
-            <li><i class="fa fa-square-o"></i><span>Find a front end developer</span>
-              <div class="info"></div>
-            </li>
+            <?php endforeach;?>
           </ul>
         </div>
         <div class="list">

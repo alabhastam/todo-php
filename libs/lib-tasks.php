@@ -34,4 +34,23 @@ function addFolder($folderName){
     $stmt->execute();
     return $stmt->rowCount();
 }
+
+
+function getTasks(){
+    global $conn;
+    $sql = "select * from tasks";
+    $stmt = $conn -> prepare($sql);
+    $stmt ->execute();
+    $records = $stmt ->fetchAll(PDO::FETCH_OBJ);
+    return $records; 
+}
+
+
+function deleteTask($task_id){
+    global $conn;
+    $sql = "delete from tasks where id = $task_id";
+    $stmt = $conn -> prepare($sql);
+    $stmt ->execute(); 
+    return $stmt ->rowCount();
+}
 ?>
